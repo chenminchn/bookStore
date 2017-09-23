@@ -43,7 +43,7 @@ ostream& Print(ostream &os, Salesdata &item){
 }
 
 int main(int argc, char *argv[]){
-	if (argc != 2){
+	if (argc != 3){
 		cerr << "请输入正确的文件名" << endl;
 		return -1;
 	}
@@ -52,6 +52,8 @@ int main(int argc, char *argv[]){
 		cout << "无法打开输入文件" << endl;
 		return -1;
 	}
+
+	ofstream out(argv[3]);
 
 	//ostream os(cout);
 	Salesdata total;
@@ -66,7 +68,7 @@ int main(int argc, char *argv[]){
 				total = trans;
 			}
 		}
-		Print(cout, total) << endl;
+		Print(out, total) << endl;
 	}
 	else{
 		cout << "没有数据" << endl;
